@@ -1,20 +1,5 @@
-userName: xxx
-accessKey: xxx
-framework: cucumber
-platforms:
-  - os: Windows
-    osVersion: 10
-    browserName: Chrome
-    browserVersion: 120.0
-  - os: OS X
-    osVersion: Monterey
-    browserName: Safari
-    browserVersion: 15.6
-  - deviceName: iPhone 13
-    osVersion: 15
-    browserName: Chromium
-    deviceOrientation: portrait
-parallelsPerPlatform: 1
-browserstackLocal: true
-buildName: browserstack-build-1
-projectName: BrowserStack Sample
+userName: <username>
+accessKey: <access-key>
+os: Windows
+browserName: chrome
+buildName: Atiade Test Build
