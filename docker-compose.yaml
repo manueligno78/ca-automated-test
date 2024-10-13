@@ -12,8 +12,14 @@ services:
       - chrome
       - firefox
     environment:
-      - BROWSER=firefox
-      - HUB_HOST=selenium-hub
+      - BROWSER=browserstack
+      ## BrowserStack
+      - HUB_HOST=hub.browserstack.com
+      - HUB_PORT=80
+
+      #- HUB_HOST=selenium-hub
+      #- HUB_PORT=4444
+
     command: ["mvn", "test", "-Dsurefire.suiteXmlFiles=src/test/java/runners/runner.xml"]
 
   allure:

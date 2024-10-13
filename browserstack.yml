@@ -1,0 +1,5 @@
+userName: <username>
+accessKey: <access-key>
+os: Windows
+browserName: chrome
+buildName: Atiade Test Build

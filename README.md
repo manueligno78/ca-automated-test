@@ -100,6 +100,53 @@ If the -DsuiteXmlFile parameter is not specified, all tests will be executed.
 Browser type can be specified by editing the hardcoded string on steps/cucumber/Step.java:26
 
 
+## Running on External Grids
+
+### BrowserStack
+
+1. **Credential Configuration**:
+   - Obtain your `username` and `access key` from BrowserStack.
+
+2. **Modify the `docker-compose.yaml` file**:
+   - (optional) Remove the `selenium-hub`, `chrome`, and `firefox` services.
+   - Add environment variables for BrowserStack on test-runner service.
+
+```yaml
+... BrowserStack Configuration
+  test-runner:
+    ...
+    environment:
+       - BROWSER=firefox
+       - HUB_HOST=hub.browserstack.com
+       - HUB_PORT=80
+       - BROWSERSTACK_USERNAME=<your_browserstack_username>
+       - BROWSERSTACK_ACCESS_KEY=<your_browserstack_access_key>
+    ...
+...
+
+... SauceLabs Configuration
+  test-runner:
+     ...
+     environment:
+        - BROWSER=firefox
+        - HUB_HOST=ondemand.saucelabs.com
+        - SAUCE_USERNAME=<your_sauce_username>
+        - SAUCE_ACCESS_KEY=<your_sauce_access_key>
+     ...
+...
+
+... AWS DeviceFarm Configuration
+  test-runner:
+     ...
+     environment:
+        - BROWSER=firefox
+        - HUB_HOST=devicefarm.<region>.amazonaws.com
+        - AWS_ACCESS_KEY_ID=<your_aws_access_key_id>
+        - AWS_SECRET_ACCESS_KEY=<your_aws_secret_access_key>
+     ...
+...
+```
+
 ## Viewing Allure Reports
 After the tests have been executed, you can view the Allure report by navigating to http://localhost:4040 in your web browser.
 
